@@ -6,7 +6,7 @@ class IGN
 	attr_reader :html,:text
 	@text = []
   def initialize
-    @html = HTTParty.get('http://www.ign.com/games/reviews?platformSlug=pc')
+    @html = HTTParty.get('http://www.ign.com/games/reviews?platformSlug=pc&genre=action')
     doc = Nokogiri::HTML(@html)
     gameDecriptionGenre = doc.xpath("//p[@class='item-details']")
 		gameNames = doc.xpath("//div[@class='item-title']")
